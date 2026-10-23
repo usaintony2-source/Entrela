@@ -1,0 +1,59 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "EntrelaFirestoreBlueprint",
+  "description": "Firestore schema definition for Entrela social app",
+  "entities": {
+    "users": {
+      "path": "users/{userId}",
+      "fields": {
+        "userId": { "type": "string" },
+        "name": { "type": "string", "maxLength": 100 },
+        "username": { "type": "string", "maxLength": 50 },
+        "email": { "type": "string" },
+        "bio": { "type": "string", "maxLength": 500 },
+        "avatarEmoji": { "type": "string" },
+        "relationshipStatus": { "type": "string" },
+        "interests": { "type": "array", "items": { "type": "string" } },
+        "followersCount": { "type": "integer", "minimum": 0 },
+        "followingCount": { "type": "integer", "minimum": 0 },
+        "createdAt": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["userId", "name", "username", "email"]
+    },
+    "reels": {
+      "path": "reels/{reelId}",
+      "fields": {
+        "id": { "type": "string" },
+        "creatorId": { "type": "string" },
+        "creatorName": { "type": "string" },
+        "creatorUsername": { "type": "string" },
+        "creatorAvatarEmoji": { "type": "string" },
+        "caption": { "type": "string", "maxLength": 300 },
+        "tags": { "type": "array", "items": { "type": "string" } },
+        "audioTrackTitle": { "type": "string" },
+        "audioArtist": { "type": "string" },
+        "likesCount": { "type": "integer", "minimum": 0 },
+        "commentsCount": { "type": "integer", "minimum": 0 },
+        "sharesCount": { "type": "integer", "minimum": 0 },
+        "likedUserIds": { "type": "array", "items": { "type": "string" } },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["id", "creatorId", "creatorName", "caption"]
+    },
+    "reel_comments": {
+      "path": "reels/{reelId}/comments/{commentId}",
+      "fields": {
+        "id": { "type": "string" },
+        "reelId": { "type": "string" },
+        "userId": { "type": "string" },
+        "userName": { "type": "string" },
+        "userAvatarEmoji": { "type": "string" },
+        "text": { "type": "string", "maxLength": 500 },
+        "likesCount": { "type": "integer", "minimum": 0 },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["id", "reelId", "userId", "userName", "text"]
+    }
+  }
+}

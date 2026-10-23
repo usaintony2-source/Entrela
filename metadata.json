@@ -1,0 +1,6 @@
+{
+  "name": "Entrela",
+  "description": "Entertainment and relationship social platform connecting people through reels, chats, and status updates.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
